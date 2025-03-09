@@ -18,10 +18,10 @@ jobs:
         uses: simple-elf/allure-report-action@master
         id: allure-report
         with:
-          allure_results: target/reports/allure-results
+          allure_results: target/allure-results
           gh_pages: gh-pages
-          allure_report: target/reports/allure-report
-          allure_history: target/reports/allure-history
+          allure_report: target/allure-report
+          allure_history: target/allure-history
 
       - name: "Создание ветки gh-pages содержащей allure report"
         uses: peaceiris/actions-gh-pages@v3
@@ -29,4 +29,4 @@ jobs:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: target/reports/allure-history
+          PUBLISH_DIR: target/allure-history

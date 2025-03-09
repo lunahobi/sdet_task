@@ -68,7 +68,7 @@
                 <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
-                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <encoding>${encoding.type}</encoding>
                 </configuration>
             </plugin>
@@ -87,7 +87,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <systemPropertyVariables>
-                        <allure.results.directory>${project.build.directory}/reports/allure-results</allure.results.directory>
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                     <properties>
                         <property>
@@ -112,8 +112,8 @@
                 <version>2.10.0</version>
                 <configuration>
                     <reportVersion>2.10.0</reportVersion>
-                    <resultsDirectory>${project.build.directory}/reports/allure-results</resultsDirectory>
-                    <reportDirectory>${project.build.directory}/reports/allure-reports</reportDirectory>
+                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                    <reportDirectory>${project.build.directory}/allure-reports</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>
