@@ -11,9 +11,16 @@ jobs:
 
       - name: "Использование ветки main репозитория"
         uses: actions/checkout@v3
-      - name: "Запуск тестов"
-        run: mvn clean test
-        continue-on-error: true
+      - name: "Install dependencies"
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser xvfb
+
+      - name: "Run tests with Xvfb"
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: mvn clean test
+          continue-on-error: true
       - name: "Генерация allure-report"
         uses: simple-elf/allure-report-action@master
         id: allure-report
