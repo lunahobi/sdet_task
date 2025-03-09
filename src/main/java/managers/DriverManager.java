@@ -15,10 +15,13 @@ public class DriverManager {
     private DriverManager() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        // Указываем уникальный временный каталог для каждого экземпляра
-        options.addArguments("--user-data-dir=" + System.getProperty("java.io.tmpdir") + "/chrome_profile_" + UUID.randomUUID());
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments(
+                "--no-sandbox",
+                "--disable-dev-shm-usage",
+                "--headless=new", // Безголовый режим для GitHub Actions
+                "--disable-gpu",
+                "--remote-allow-origins=*" // Разрешить удаленные подключения
+        );
         driver = new ChromeDriver(options);
     }
 
