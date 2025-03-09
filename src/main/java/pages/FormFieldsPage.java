@@ -76,7 +76,6 @@ public class FormFieldsPage extends BasePage{
         for (WebElement radio: radioList){
             moveToElement(radio);
             String value = radio.getAttribute("value");
-            System.out.println(value);
             if (value.equals("Yellow")){
                 radio.click();
             }
@@ -139,7 +138,6 @@ public class FormFieldsPage extends BasePage{
         moveToElement(submitButton);
         submitButton.submit();
         Alert alert = waitAlert();
-        System.out.println(alert.getText());
         Assert.assertEquals("Текст алерта неверный", "Message received!", alert.getText());
         return this;
     }
