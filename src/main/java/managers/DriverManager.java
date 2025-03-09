@@ -1,17 +1,18 @@
 package managers;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utils.PropConst;
 
 public class DriverManager {
-
     private WebDriver driver;
-    private TestPropManager propManager = TestPropManager.getInstance();
-
     private static DriverManager INSTANCE = null;
 
     private DriverManager() {
+        // Автоматическая настройка драйвера через WebDriverManager
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
     }
 
     public static DriverManager getInstance() {
@@ -22,22 +23,14 @@ public class DriverManager {
     }
 
     public WebDriver getDriver() {
-        if (driver == null) {
-            initDriver();
-        }
         return driver;
     }
 
     public void quitDriver() {
         if (driver != null) {
             driver.quit();
-            driver = null;
+            INSTANCE = null; // Сброс экземпляра
         }
-    }
-
-    private void initDriver() {
-        System.setProperty("webdriver.chrome.driver", propManager.getProperty(PropConst.PATH_CHROME_DRIVER_WINDOWS));
-        driver = new ChromeDriver();
     }
 }
 
