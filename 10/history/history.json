@@ -1,1 +1,0 @@
-{"fba42aeda5be6161b9e07da24c960fae":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"a50b77758d5784eb","reportUrl":"https://lunahobi.github.io/sdet_task/10//#testresult/a50b77758d5784eb","status":"passed","time":{"start":1741544899945,"stop":1741544903230,"duration":3285}}]}}
